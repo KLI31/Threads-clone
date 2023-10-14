@@ -1,21 +1,30 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import LoginScreen from './screens/LoginScreen'
-import RegisterScreen from './screens/RegisterScreen'
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import { SCREEN_NAMES } from "./utils/routes";
 
 const StackNavigator = () => {
-    const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator();
 
-return (
+  return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen
+          name={SCREEN_NAMES.login}
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name={SCREEN_NAMES.register}
+          component={RegisterScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
-  )
-}
+  );
+};
 
-export default StackNavigator
+export default StackNavigator;
