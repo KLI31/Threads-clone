@@ -80,4 +80,10 @@ const sendVerificationEmail = async (email, verificationToken) => {
         text: `Please click on the link to verify your email http://localhost:3000/verify-email/${verificationToken}`
     }
 
+
+    try {
+        await transporter.sendMail(mailOptions)
+    } catch (error) {
+        console.log("error sending message", error)
+    }
 }
